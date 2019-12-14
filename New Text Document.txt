@@ -1,0 +1,17 @@
+AllAIValues = []
+        for B in humanMoves:
+            AIMoves = []
+            for i in range(0,3):
+                for j in range(0,3):
+                    for k in range (0,3):
+                        if board[i][j][k] == "":
+                            # note! this is a board and then the location of the move made
+                            upBoard = liberate(B)
+                            upboard[i][j][k] = "O"
+                            AIMoves.append(upboard)
+            #rate them in this algorythm
+            for AIM in AIMoves:
+                AllAIValues.append(rateMoves(AIM[0]))#, AIM[1]))
+        #return the average
+        if len(AllAIValues) == 0:
+            print(board)
