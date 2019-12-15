@@ -44,14 +44,11 @@ def main():
 
 
 ####################################################AI SUITE############################################
-def average(listOfInts):
-    count = len(listOfInts)
-    total = sum(listOfInts)
-    return total / count
 
 ########################################################"STOLEN" AI SYSTEM######################################
 #Based on a Tic-Tac-Toe AI from https://mitxela.com/projects/bf_tic_tac_toe
-#simply: it always takes a win, then it takes a move that blocks a player win, then it picks from every other location from a hierarchy
+#simply: it always takes a win, then it takes a move that blocks a player win, then it picks from every other location via other methods.
+#at the moment, the backup plan is randomness
 
 #checks if a position is at the end of two in a row, if false, returns "". If Xs, X. If Os, O.
 #that is: XYZ is empty, but the other two match
@@ -298,91 +295,6 @@ def printLetter(letter, level):
             print("/   \\", end="")
 
 ######################################################################TEST CASES AND MAIN()#######################
-
-testBoard = [
-    [["O", "X", "O"],
-    ["X", "O", "X"],
-    ["O", "X", "O"]],
-
-    [["X", "O", "X"],
-    ["O", "X", "O"],
-    ["X", "O", "X"]],
-
-    [["", "", ""],
-    ["", "", ""],
-    ["", "", ""]]
-]
-
-
-testBoard2 = [
-    [["X", "X", "O"],
-    ["", "X", ""],
-    ["", "O", "O"]],
-
-    [["X", "X", "O"],
-    ["", "X", ""],
-    ["", "O", "O"]],
-
-    [["X", "X", "O"],
-    ["", "X", "O"],
-    ["", "O", "O"]]
-]
-
-testBoard3 = [
-    [["X", "X", "O"],
-    ["", "X", ""],
-    ["", "X", "O"]],
-
-    [["X", "X", "O"],
-    ["O", "O", "O"],
-    ["", "O", "O"]],
-
-    [["X", "X", "O"],
-    ["", "X", ""],
-    ["", "O", "O"]]
-]
-
-testBoard4 = [
-    [["I1A", "I1B", "I1C"],
-    ["I2A", "I2B", "I2C"],
-    ["I3A", "I3B", "I3C"]],
-
-    [["", "", ""],
-    ["", "", ""],
-    ["", "", ""]],
-
-    [["", "", ""],
-    ["", "", ""],
-    ["", "", ""]]
-]
-
-testBoard5 = [
-    [["X", "", ""],
-    ["X", "", ""],
-    ["", "", ""]],
-
-    [["", "", ""],
-    ["", "", "O"],
-    ["", "", ""]],
-
-    [["", "", ""],
-    ["", "", "O"],
-    ["", "", ""]]
-]
-
-#print("upval and downval")
-#print(upval(0), downval(0))
-#print(upval(1), downval(1))
-#rint(upval(2), downval(2))
-
-#print(endof(testBoard5, 0, 2, 0))
-#print(decide(testBoard5))
-
-brokenBoard = [[['O', 'O', 'X'], ['O', 'X', 'O'], ['X', 'X', 'O']], 
-                [['O', 'O', 'O'], ['O', 'X', 'O'], ['X', 'O', 'O']], 
-                [['O', 'O', 'O'], ['O', 'O', 'O'], ['O', 'O', 'O']]]
-
-
 
 main()
 
