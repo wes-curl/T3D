@@ -60,14 +60,17 @@ def endof(grids, x, y, z):
     if grids[x][y][z] == "":
         #are there exactly two filled spaces in the row?
         #X
-        if(grids[upval(x)][y][z] == grids[downval(x)][y][y]):
-            return grids[upval(x)][y][y]
+        if(grids[upval(x)][y][z] != "" and grids[downval(x)][y][z] != ""):
+            #print("dingX")
+            return grids[upval(x)][y][z]
         #Y
-        elif(grids[y][upval(x)][z] == grids[y][downval(x)][y]):
-            return grids[y][upval(x)][y]
+        elif(grids[x][upval(y)][z] != "" and grids[x][downval(y)][z] != ""):
+            #print("dingY")
+            return grids[x][upval(y)][z]
         #Z
-        elif(grids[y][y][upval(x)] == grids[y][y][downval(x)]):
-            return grids[y][y][upval(x)]
+        elif(grids[x][y][upval(z)]  != "" and grids[x][y][downval(z)]  != ""):
+            #print("dingZ")
+            return grids[x][y][upval(z)]
         else:
             return ""
     else:
@@ -91,8 +94,10 @@ def decide(board):
             for z in range(0,3):
                 value = endof(board, x,y,z)
                 if value == "O":
+                    print("O:",[x,y,z])
                     return [x,y,z]
                 elif value == "X":
+                    print("X:", [x,y,z])
                     backup = [x,y,z]
                 else:
                     available.append([x,y,z])
@@ -104,7 +109,7 @@ def decide(board):
     choice *= len(available)
     choice = round(choice)
 
-    return available(choice)
+    return available[choice]
 
 
 
@@ -350,6 +355,28 @@ testBoard4 = [
     ["", "", ""],
     ["", "", ""]]
 ]
+
+testBoard5 = [
+    [["X", "", ""],
+    ["X", "", ""],
+    ["", "", ""]],
+
+    [["", "", ""],
+    ["", "", "O"],
+    ["", "", ""]],
+
+    [["", "", ""],
+    ["", "", "O"],
+    ["", "", ""]]
+]
+
+#print("upval and downval")
+#print(upval(0), downval(0))
+#print(upval(1), downval(1))
+#rint(upval(2), downval(2))
+
+#print(endof(testBoard5, 0, 2, 0))
+#print(decide(testBoard5))
 
 brokenBoard = [[['O', 'O', 'X'], ['O', 'X', 'O'], ['X', 'X', 'O']], 
                 [['O', 'O', 'O'], ['O', 'X', 'O'], ['X', 'O', 'O']], 
